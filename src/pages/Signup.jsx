@@ -42,6 +42,7 @@ function Signup() {
             onChange={(e) => setUsername(e.target.value)}
             placeholder="User Name"
             required
+            autoFocus
           />
           <Input
             type="email"

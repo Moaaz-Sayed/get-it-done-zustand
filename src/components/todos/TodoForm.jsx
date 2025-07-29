@@ -6,7 +6,7 @@ import SpinnerMini from "../ui/SpinnerMini";
 
 function TodoForm() {
   const [newTodo, setNewTodo] = useState("");
-  const { isLoading, addTodo } = useTodoStore();
+  const { isAdding, addTodo } = useTodoStore();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -27,15 +27,16 @@ function TodoForm() {
         placeholder="Enter a new task"
         size="md"
         className="flex-1"
+        autoFocus
       />
 
       <Button
         type="submit"
         size="lg"
         className="bg-purple-500 hover:bg-purple-700"
-        disabled={isLoading}
+        disabled={isAdding}
       >
-        {isLoading ? <SpinnerMini /> : "Add Task"}
+        {isAdding ? <SpinnerMini /> : "Add Task"}
       </Button>
     </form>
   );

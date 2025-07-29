@@ -5,6 +5,7 @@ import { toast } from "sonner";
 const useTodoStore = create((set, get) => ({
   todos: [],
   isLoading: false,
+  isAdding: false,
   error: null,
 
   fetchTodos: async () => {
@@ -35,7 +36,7 @@ const useTodoStore = create((set, get) => ({
   },
 
   addTodo: async (newTodo) => {
-    set({ isLoading: true, error: null });
+    set({ isAdding: true, error: null });
 
     const {
       data: { user },
@@ -55,11 +56,11 @@ const useTodoStore = create((set, get) => ({
 
     if (error) {
       toast.error("Failed to add todo");
-      return set({ error: error.message, isLoading: false });
+      return set({ error: error.message, isAdding: false });
     }
 
     toast.success("Todo added successfully");
-    set((state) => ({ todos: [data, ...state.todos], isLoading: false }));
+    set((state) => ({ todos: [data, ...state.todos], isAdding: false }));
   },
 
   deleteTodo: async (id) => {

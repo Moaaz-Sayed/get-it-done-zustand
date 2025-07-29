@@ -40,6 +40,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             required
+            autoFocus
           />
           <Input
             type="password"

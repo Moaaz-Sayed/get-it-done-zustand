@@ -42,6 +42,7 @@ export default function CustomAlertDialog({
               onConfirm();
               setOpen(false);
             }}
+            autoFocus
           >
             {actionText}
           </AlertDialogAction>

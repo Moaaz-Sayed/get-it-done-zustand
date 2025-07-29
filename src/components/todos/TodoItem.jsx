@@ -61,7 +61,7 @@ function TodoItem({ todo }) {
             onClick={handleComplete}
           />
 
-          {/* Delete Moadal */}
+          {/* Delete Modal */}
           <CustomAlertDialog
             onConfirm={handleDelete}
             title="Delete todo?"
